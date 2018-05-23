@@ -5,7 +5,7 @@
   ],
   "build-depends" : [ ],
   "depends" : [
-    "P5getnetnam"
+    "P5getnetbyname"
   ],
   "description" : "Port of Perl 5's Net::netent",
   "license" : "Artistic-2.0",
