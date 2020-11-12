@@ -5,7 +5,7 @@ our @n_aliases  is export(:FIELDS);
 our $n_addrtype is export(:FIELDS);
 our $n_net      is export(:FIELDS);
 
-class Net::netent:ver<0.0.3>:auth<cpan:ELIZABETH> {
+class Net::netent:ver<0.0.4>:auth<cpan:ELIZABETH> {
     has Str $.name;
     has     @.aliases;
     has Int $.addrtype;
