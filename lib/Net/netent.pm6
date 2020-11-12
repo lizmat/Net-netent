@@ -1,11 +1,11 @@
-use v6.c;
+use v6.*;
 
 our $n_name     is export(:FIELDS);
 our @n_aliases  is export(:FIELDS);
 our $n_addrtype is export(:FIELDS);
 our $n_net      is export(:FIELDS);
 
-class Net::netent:ver<0.0.2>:auth<cpan:ELIZABETH> {
+class Net::netent:ver<0.0.3>:auth<cpan:ELIZABETH> {
     has Str $.name;
     has     @.aliases;
     has Int $.addrtype;
@@ -31,15 +31,18 @@ sub populate(@fields) {
 }
 
 my sub getnetbyname(Str() $name) is export(:DEFAULT:FIELDS) {
-    use P5getnetbyname; populate(getnetbyname($name))
+    use P5getnetbyname:ver<0.0.6>:auth<cpan:ELIZABETH>;
+    populate(getnetbyname($name))
 }
 
 my sub getnetbyaddr(Int:D $addrtype, Int:D $net) is export(:DEFAULT:FIELDS) {
-    use P5getnetbyname; populate(getnetbyaddr($addrtype,$net))
+    use P5getnetbyname:ver<0.0.6>:auth<cpan:ELIZABETH>;
+    populate(getnetbyaddr($addrtype,$net))
 }
 
 my sub getnetent() is export(:DEFAULT:FIELDS) {
-    use P5getnetbyname; populate(getnetent)
+    use P5getnetbyname:ver<0.0.6>:auth<cpan:ELIZABETH>;
+    populate(getnetent)
 }
 
 my proto sub getnet(|) is export(:DEFAULT:FIELDS) {*}
@@ -51,17 +54,19 @@ my multi sub getnet(Str:D $nam) is export(:DEFAULT:FIELDS) {
 }
 
 my constant &setnetent is export(:DEFAULT:FIELDS) = do {
-    use P5getnetbyname; &setnetent
+    use P5getnetbyname:ver<0.0.6>:auth<cpan:ELIZABETH>;
+    &setnetent
 }
 my constant &endnetent is export(:DEFAULT:FIELDS) = do {
-    use P5getnetbyname; &endnetent
+    use P5getnetbyname:ver<0.0.6>:auth<cpan:ELIZABETH>;
+    &endnetent
 }
 
 =begin pod
 
 =head1 NAME
 
-Net::netent - Port of Perl 5's Net::netent
+Raku port of Perl 5's Net::netent module
 
 =head1 SYNOPSIS
 
@@ -75,6 +80,9 @@ Net::netent - Port of Perl 5's Net::netent
     printf "%s is %08X\n", $n_name, $n_net;
 
 =head1 DESCRIPTION
+
+This module tries to mimic the behaviour of Perl's C<Net::netent> module
+as closely as possible in the Raku Programming Language.
 
 This module's exports C<getnetbyname>, C<getnetbyaddrd>, and C<getnetent>
 functions that return C<Netr::netent> objects. This object has methods that
@@ -90,6 +98,12 @@ $net_obj.name corresponds to $n_name if you import the fields.
 The C<getnet> function is a simple front-end that forwards a numeric argument
 to C<getnetbyaddr> and the rest to C<getnetbyname>.
 
+=head1 PORTING CAVEATS
+
+This module depends on the availability of POSIX semantics.  This is
+generally not available on Windows, so this module will probably not work
+on Windows.
+
 =head1 AUTHOR
 
 Elizabeth Mattijsen <liz@wenzperl.nl>
@@ -99,7 +113,7 @@ Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018 Elizabeth Mattijsen
+Copyright 2018,2020 Elizabeth Mattijsen
 
 Re-imagined from Perl 5 as part of the CPAN Butterfly Plan.
 
@@ -107,4 +121,4 @@ This library is free software; you can redistribute it and/or modify it under th
 
 =end pod
 
-# vim: ft=perl6 expandtab sw=4
+# vim: expandtab shiftwidth=4

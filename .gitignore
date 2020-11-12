@@ -7,3 +7,4 @@
 .precomp/
 /releases/
 /Net-netent-*
+/lib/P5getnetbyname.pm6

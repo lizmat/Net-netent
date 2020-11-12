@@ -1,9 +1,7 @@
-[![Build Status](https://travis-ci.org/lizmat/Net-netent.svg?branch=master)](https://travis-ci.org/lizmat/Net-netent)
-
 NAME
 ====
 
-Net::netent - Port of Perl 5's Net::netent
+Raku port of Perl 5's Net::netent module
 
 SYNOPSIS
 ========
@@ -20,11 +18,18 @@ SYNOPSIS
 DESCRIPTION
 ===========
 
+This module tries to mimic the behaviour of Perl's `Net::netent` module as closely as possible in the Raku Programming Language.
+
 This module's exports `getnetbyname`, `getnetbyaddrd`, and `getnetent` functions that return `Netr::netent` objects. This object has methods that return the similarly named structure field name from the C's netent structure from netdb.h, stripped of their leading "n_" parts, namely name, aliases, addrtype and net.
 
 You may also import all the structure fields directly into your namespace as regular variables using the :FIELDS import tag. Access these fields as variables named with a preceding n_ in front their method names. Thus, $net_obj.name corresponds to $n_name if you import the fields.
 
 The `getnet` function is a simple front-end that forwards a numeric argument to `getnetbyaddr` and the rest to `getnetbyname`.
+
+PORTING CAVEATS
+===============
+
+This module depends on the availability of POSIX semantics. This is generally not available on Windows, so this module will probably not work on Windows.
 
 AUTHOR
 ======
@@ -36,7 +41,7 @@ Source can be located at: https://github.com/lizmat/Net-netent . Comments and Pu
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018 Elizabeth Mattijsen
+Copyright 2018,2020 Elizabeth Mattijsen
 
 Re-imagined from Perl 5 as part of the CPAN Butterfly Plan.
 

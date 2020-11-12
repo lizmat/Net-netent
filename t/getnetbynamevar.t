@@ -1,4 +1,4 @@
-use v6.c;
+use v6.*;
 use Test;
 use Net::netent :FIELDS;
 
@@ -25,4 +25,4 @@ nok defined($n_name), 'did lookup by non-existing name fail';
 getnetbyaddr(666, 42);
 nok defined($n_name), 'did lookup by non-existing addr fail';
 
-# vim: ft=perl6 expandtab sw=4
+# vim: expandtab shiftwidth=4

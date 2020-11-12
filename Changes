@@ -2,6 +2,13 @@ Revision history for Net-netent
 
 {{$NEXT}}
 
+0.0.3  2020-11-12T19:48:00+01:00
+    - Change name of distribution
+    - Force to highest possible Raku version
+    - Update copyright year
+    - Add PORTING CAVEATS section about needing POSIX semantics
+    - Tighten up dependency on P5getnetbyname
+
 0.0.2  2018-05-23T19:15:44+02:00
     - Fixed source-url in META, raschipi++
 
