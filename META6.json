@@ -1,19 +1,19 @@
 {
-  "auth": "cpan:ELIZABETH",
+  "auth": "zef:lizmat",
   "authors": [
     "Elizabeth Mattijsen"
   ],
   "build-depends": [
   ],
   "depends": [
-    "P5getnetbyname:ver<0.0.6>:auth<cpan:ELIZABETH>"
+    "P5getnetbyname:ver<0.0.7>:auth<zef:lizmat>"
   ],
-  "description": "Raku port of Perl 5's Net::netent module",
+  "description": "Raku port of Perl's Net::netent module",
   "license": "Artistic-2.0",
   "name": "Net::netent",
   "perl": "6.c",
   "provides": {
-    "Net::netent": "lib/Net/netent.pm6"
+    "Net::netent": "lib/Net/netent.rakumod"
   },
   "resources": [
   ],
@@ -24,5 +24,5 @@
   ],
   "test-depends": [
   ],
-  "version": "0.0.4"
+  "version": "0.0.5"
 }

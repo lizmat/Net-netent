@@ -5,7 +5,7 @@ our @n_aliases  is export(:FIELDS);
 our $n_addrtype is export(:FIELDS);
 our $n_net      is export(:FIELDS);
 
-class Net::netent:ver<0.0.4>:auth<cpan:ELIZABETH> {
+class Net::netent:ver<0.0.5>:auth<zef:lizmat> {
     has Str $.name;
     has     @.aliases;
     has Int $.addrtype;
@@ -31,17 +31,17 @@ sub populate(@fields) {
 }
 
 my sub getnetbyname(Str() $name) is export(:DEFAULT:FIELDS) {
-    use P5getnetbyname:ver<0.0.6>:auth<cpan:ELIZABETH>;
+    use P5getnetbyname:ver<0.0.7>:auth<zef:lizmat>;
     populate(getnetbyname($name))
 }
 
 my sub getnetbyaddr(Int:D $addrtype, Int:D $net) is export(:DEFAULT:FIELDS) {
-    use P5getnetbyname:ver<0.0.6>:auth<cpan:ELIZABETH>;
+    use P5getnetbyname:ver<0.0.7>:auth<zef:lizmat>;
     populate(getnetbyaddr($addrtype,$net))
 }
 
 my sub getnetent() is export(:DEFAULT:FIELDS) {
-    use P5getnetbyname:ver<0.0.6>:auth<cpan:ELIZABETH>;
+    use P5getnetbyname:ver<0.0.7>:auth<zef:lizmat>;
     populate(getnetent)
 }
 
@@ -54,11 +54,11 @@ my multi sub getnet(Str:D $nam) is export(:DEFAULT:FIELDS) {
 }
 
 my constant &setnetent is export(:DEFAULT:FIELDS) = do {
-    use P5getnetbyname:ver<0.0.6>:auth<cpan:ELIZABETH>;
+    use P5getnetbyname:ver<0.0.7>:auth<zef:lizmat>;
     &setnetent
 }
 my constant &endnetent is export(:DEFAULT:FIELDS) = do {
-    use P5getnetbyname:ver<0.0.6>:auth<cpan:ELIZABETH>;
+    use P5getnetbyname:ver<0.0.7>:auth<zef:lizmat>;
     &endnetent
 }
 
@@ -66,7 +66,7 @@ my constant &endnetent is export(:DEFAULT:FIELDS) = do {
 
 =head1 NAME
 
-Raku port of Perl 5's Net::netent module
+Raku port of Perl's Net::netent module
 
 =head1 SYNOPSIS
 
@@ -106,16 +106,16 @@ on Windows.
 
 =head1 AUTHOR
 
-Elizabeth Mattijsen <liz@wenzperl.nl>
+Elizabeth Mattijsen <liz@raku.rocks>
 
 Source can be located at: https://github.com/lizmat/Net-netent . Comments and
 Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018,2020 Elizabeth Mattijsen
+Copyright 2018, 2019, 2020, 2021 Elizabeth Mattijsen
 
-Re-imagined from Perl 5 as part of the CPAN Butterfly Plan.
+Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

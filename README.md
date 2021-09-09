@@ -1,7 +1,9 @@
+[![Actions Status](https://github.com/lizmat/Net-netent/workflows/test/badge.svg)](https://github.com/lizmat/Net-netent/actions)
+
 NAME
 ====
 
-Raku port of Perl 5's Net::netent module
+Raku port of Perl's Net::netent module
 
 SYNOPSIS
 ========
@@ -34,16 +36,16 @@ This module depends on the availability of POSIX semantics. This is generally no
 AUTHOR
 ======
 
-Elizabeth Mattijsen <liz@wenzperl.nl>
+Elizabeth Mattijsen <liz@raku.rocks>
 
 Source can be located at: https://github.com/lizmat/Net-netent . Comments and Pull Requests are welcome.
 
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018,2020 Elizabeth Mattijsen
+Copyright 2018, 2019, 2020, 2021 Elizabeth Mattijsen
 
-Re-imagined from Perl 5 as part of the CPAN Butterfly Plan.
+Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

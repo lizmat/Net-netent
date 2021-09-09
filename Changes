@@ -2,6 +2,13 @@ Revision history for Net-netent
 
 {{$NEXT}}
 
+0.0.5  2021-09-09T20:01:12+02:00
+    - Change file extension to .rakumod
+    - Migrate to zef ecosystem
+    - Update email address
+    - Update copyright year
+    - Update dependency
+
 0.0.4  2020-11-12T19:59:31+01:00
     - Fix borked dependency specification
 
